@@ -2,6 +2,7 @@ package gqlerrors
 
 import (
 	"errors"
+	"runtime/debug"
 
 	"github.com/graphql-go/graphql/language/location"
 )
@@ -21,6 +22,7 @@ func NewFormattedError(message string) FormattedError {
 }
 
 func FormatError(err error) FormattedError {
+	debug.PrintStack()
 	switch err := err.(type) {
 	case FormattedError:
 		return err
