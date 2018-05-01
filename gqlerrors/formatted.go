@@ -10,6 +10,7 @@ import (
 type FormattedError struct {
 	Message   string                    `json:"message"`
 	Locations []location.SourceLocation `json:"locations"`
+	Stack     []byte
 }
 
 func (g FormattedError) Error() string {
@@ -22,7 +23,6 @@ func NewFormattedError(message string) FormattedError {
 }
 
 func FormatError(err error) FormattedError {
-	debug.PrintStack()
 	switch err := err.(type) {
 	case FormattedError:
 		return err
@@ -30,16 +30,19 @@ func FormatError(err error) FormattedError {
 		return FormattedError{
 			Message:   err.Error(),
 			Locations: err.Locations,
+			Stack:     debug.Stack(),
 		}
 	case Error:
 		return FormattedError{
 			Message:   err.Error(),
 			Locations: err.Locations,
+			Stack:     debug.Stack(),
 		}
 	default:
 		return FormattedError{
 			Message:   err.Error(),
 			Locations: []location.SourceLocation{},
+			Stack:     debug.Stack(),
 		}
 	}
 }
