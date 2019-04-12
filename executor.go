@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/graphql-go/graphql/gqlerrors"
+	"github.com/bookreport/graphql/gqlerrors"
 	"github.com/graphql-go/graphql/language/ast"
 )
 
