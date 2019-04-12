@@ -509,8 +509,15 @@ type resolveFieldResultState struct {
 // then calls completeValue to complete promises, serialize scalars, or execute
 // the sub-selection-set for objects.
 func resolveField(eCtx *executionContext, parentType *Object, source interface{}, fieldASTs []*ast.Field) (result interface{}, resultState resolveFieldResultState) {
-	// catch panic from resolveFn
 	var returnType Output
+	var fieldName string
+
+	parentName := "unknown"
+	if parentType != nil {
+		parentName = parentType.Name()
+	}
+
+	// catch panic from resolveFn
 	defer func() (interface{}, resolveFieldResultState) {
 		if r := recover(); r != nil {
 
@@ -522,20 +529,19 @@ func resolveField(eCtx *executionContext, parentType *Object, source interface{}
 				)
 			}
 			if r, ok := r.(error); ok {
-				err = gqlerrors.FormatError(r)
+				err = gqlerrors.FormatError(r, parentName, fieldName)
 			}
 			// send panic upstream
 			if _, ok := returnType.(*NonNull); ok {
-				panic(gqlerrors.FormatError(err))
+				panic(gqlerrors.FormatError(err, parentName, fieldName))
 			}
-			eCtx.Errors = append(eCtx.Errors, gqlerrors.FormatError(err))
+			eCtx.Errors = append(eCtx.Errors, gqlerrors.FormatError(err, parentName, fieldName))
 			return result, resultState
 		}
 		return result, resultState
 	}()
 
 	fieldAST := fieldASTs[0]
-	fieldName := ""
 	if fieldAST.Name != nil {
 		fieldName = fieldAST.Name.Value
 	}
@@ -578,7 +584,7 @@ func resolveField(eCtx *executionContext, parentType *Object, source interface{}
 	})
 
 	if resolveFnError != nil {
-		panic(gqlerrors.FormatError(resolveFnError))
+		panic(gqlerrors.FormatError(resolveFnError, parentName, fieldName))
 	}
 
 	completed := completeValueCatchingError(eCtx, returnType, fieldASTs, info, result)
