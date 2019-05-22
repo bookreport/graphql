@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/graphql-go/graphql/language/ast"
-	"github.com/graphql-go/graphql/language/typeInfo"
+	"github.com/bookreport/graphql/language/ast"
+	"github.com/bookreport/graphql/language/typeInfo"
 )
 
 const (

@@ -4,9 +4,9 @@ import (
 	"fmt"
 
 	"github.com/bookreport/graphql/gqlerrors"
-	"github.com/graphql-go/graphql/language/ast"
-	"github.com/graphql-go/graphql/language/lexer"
-	"github.com/graphql-go/graphql/language/source"
+	"github.com/bookreport/graphql/language/ast"
+	"github.com/bookreport/graphql/language/lexer"
+	"github.com/bookreport/graphql/language/source"
 )
 
 type parseFn func(parser *Parser) (interface{}, error)

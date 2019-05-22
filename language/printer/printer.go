@@ -6,8 +6,8 @@ import (
 
 	"reflect"
 
-	"github.com/graphql-go/graphql/language/ast"
-	"github.com/graphql-go/graphql/language/visitor"
+	"github.com/bookreport/graphql/language/ast"
+	"github.com/bookreport/graphql/language/visitor"
 )
 
 func getMapValue(m map[string]interface{}, key string) interface{} {
