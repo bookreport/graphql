@@ -3,7 +3,7 @@ package benchutil
 import (
 	"fmt"
 
-	"github.com/bookreport/graphql"
+	"github.com/graphql-go/graphql"
 )
 
 type color struct {

@@ -3,7 +3,7 @@ package graphql
 import (
 	"errors"
 	"github.com/bookreport/graphql/gqlerrors"
-	"github.com/bookreport/graphql/language/ast"
+	"github.com/graphql-go/graphql/language/ast"
 )
 
 func NewLocatedError(err interface{}, nodes []ast.Node) *gqlerrors.Error {

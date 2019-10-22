@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/bookreport/graphql/language/ast"
+	"github.com/graphql-go/graphql/language/ast"
 )
 
 // As per the GraphQL Spec, Integers are only treated as valid when a valid

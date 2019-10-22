@@ -8,7 +8,7 @@ import (
 	"runtime/debug"
 	"strings"
 
-	"github.com/bookreport/graphql/language/location"
+	"github.com/graphql-go/graphql/language/location"
 )
 
 type FormattedError struct {

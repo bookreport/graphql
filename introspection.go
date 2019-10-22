@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"sort"
 
-	"github.com/bookreport/graphql/language/ast"
-	"github.com/bookreport/graphql/language/printer"
+	"github.com/graphql-go/graphql/language/ast"
+	"github.com/graphql-go/graphql/language/printer"
 )
 
 const (

@@ -3,9 +3,9 @@ package graphql_test
 import (
 	"testing"
 
-	"github.com/bookreport/graphql"
-	"github.com/bookreport/graphql/gqlerrors"
-	"github.com/bookreport/graphql/testutil"
+	"github.com/graphql-go/graphql"
+	"github.com/graphql-go/graphql/gqlerrors"
+	"github.com/graphql-go/graphql/testutil"
 )
 
 func TestValidate_OverlappingFieldsCanBeMerged_UniqueFields(t *testing.T) {

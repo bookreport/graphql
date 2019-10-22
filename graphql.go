@@ -4,8 +4,8 @@ import (
 	"context"
 
 	"github.com/bookreport/graphql/gqlerrors"
-	"github.com/bookreport/graphql/language/parser"
-	"github.com/bookreport/graphql/language/source"
+	"github.com/graphql-go/graphql/language/parser"
+	"github.com/graphql-go/graphql/language/source"
 )
 
 type Params struct {

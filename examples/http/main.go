@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/bookreport/graphql"
+	"github.com/graphql-go/graphql"
 )
 
 type user struct {

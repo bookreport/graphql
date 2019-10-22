@@ -1,8 +1,8 @@
 package graphql
 
 import (
-	"github.com/bookreport/graphql/language/ast"
-	"github.com/bookreport/graphql/language/kinds"
+	"github.com/graphql-go/graphql/language/ast"
+	"github.com/graphql-go/graphql/language/kinds"
 )
 
 // TODO: can move TypeInfo to a utils package if there ever is one
